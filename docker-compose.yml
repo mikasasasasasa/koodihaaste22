@@ -15,5 +15,6 @@ services:
       - "3000:3000"
     depends_on:
       - api
-    volumes:
-      - ./frontend:/app
+    # uncomment for development usage
+    # volumes:
+    #   - ./frontend:/app
