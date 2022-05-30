@@ -1,0 +1,31 @@
+{
+  "extends": [
+    "react-app",
+    "airbnb",
+    "react-app/jest",
+    "plugin:cypress/recommended"
+  ],
+  "rules": {
+    "react/prop-types": 0,
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [
+          ".js",
+          ".jsx"
+        ]
+      }
+    ],
+    "semi": [
+      "error",
+      "never"
+    ],
+    "max-len": [
+      "warn",
+      {
+        "code": 200,
+        "ignoreComments": true
+      }
+    ]
+  }
+}

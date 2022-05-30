@@ -1,0 +1,19 @@
+version: '3.2'
+services:
+
+  api:
+    platform: linux/amd64
+    image: solidabis/koodihaaste22:latest
+    ports:
+      - "8080:8080"
+
+  front:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    depends_on:
+      - api
+    volumes:
+      - ./frontend:/app

@@ -1,44 +1,35 @@
-# Solidabis koodihaaste 2022
+# Yleistä
 
-Tehtävänäsi on toteuttaa lounaspaikkaäänestyssovelluksen frontend valmista APIa vasten (työkalut saat valita itse).
-Arvosteluperusteet tärkeysjärjestyksessä:
+Devauksessa on hyödynnetty dockeria ja docker-composea. Jotta toteutuksen saa lokaalisti käyntiin täytyy ajaa seuraavat komennot kansion juuressa:
+> docker-compose build
 
- 1. Ratkaisun oikeellisuus
-    1. ravintoloiden haku paikkakuntakohtaisesti
-    2. äänen antaminen, muuttaminen ja poistaminen
-    3. äänestystulosten esittäminen reaaliajassa
- 2. Testit
- 3. Ratkaisun selkeys ja yksinkertaisuus
- 4. Käyttöliittymäratkaisut
+> docker-compose up
 
-Tässä repositoryssä on valmis Spring Bootilla toteutettu backend, joka toteuttaa lounaspaikkojen
-haku- ja äänestyslogiikan käyttäen Lounaat.info -palvelua.
+Nämä komennot käynnistävät sekä frontendin, että backendin. Tämän jälkeen voi avata selaimeen http://localhost:3000/ ja sovelluksen kuuluisi toimia.
 
-Backendin ajamiseen tarvitset JDK:n (versio>=11) ja/tai Dockerin asennettuna työasemallesi.
+# Backend
 
-Backendin käynnistys:
+Backendissä käytin valmista docker imagea ja täten backendin toimintaan ei tullut muutoksia.
 
-    ./gradlew bootRun
+# Frontend
 
-tai Dockerilla:
+Frontend on toteutettu ReactJS avulla sekä Material UI kirjaston komponenteilla. 
 
-    docker run -p 8080:8080 solidabis/koodihaaste22:latest
+# Kuvia
 
-Tutustu API-dokumentaatioon http://localhost:8080/swagger-ui.html
+## Tumma teema
+![Etusivu dark](assets/etusivu_dark.png)
 
-Päivä/selainkohtainen äänioikeus on toteutettu HTTP-only -cookiella.
+## Vaalea teema
+![Etusivu light](assets/etusivu_light.png)
 
-# Palautus
+## Lounaslista
+![Lounaslista](assets/listaus.png)
 
-_Forkkaa tästä repositorystä oma julkinen ratkaisureposi_ ja lähetä linkki 31.5.2022 mennessä sähköpostilla osoitteeseen
-koodihaaste@solidabis.com. Muokkaa README.md -tiedostoa siten, että siitä ilmenee vastauksen
-tarkastelua helpottavat tiedot, kuten käyttämäsi teknologiat ja muutaman lauseen kuvaus tekemistäsi
-ratkaisuista. Voit myös julkaista ratkaisusi esim. Herokuun, muista liittää linkki ja mahdolliset salasanat sähköpostiin!
+## Päivän suosituimmat
+![Päivän suosituimmat](assets/päivän_tulokset.png)
 
-Backendin muuttaminen esim. autentikoinnin toteuttamiseksi on sallittua.
+# Testit
+Testit oli tarkoitus tehdä Cypressin (e2e) avulla, mutta ilmeni, että MacBook M1 prosessorilla ja Cypressin docker imagella se on haastavaa ellei mahdotonta eikä aika enää riittänyt selvittämään vaihtoehtoisia toteutuksia.
 
-Kerro samalla haluatko osallistua vain kilpailuun ja arvontaan, vai haluatko Solidabiksen
-ottavan yhteyttä myös työtarjouksiin liittyen. Se ei tarkoita, että sinulle lähetettäisiin roskapostia, vaan nimensä
-mukaisesti esimerkiksi kutsu työhaastatteluun. Voit halutessasi
-osallistua koodihasteeseen myös ilman, että haluat ottaa palkintoa
-vastaan tai osallistua arvontaan.
+https://github.com/cypress-io/cypress-docker-images/issues/431

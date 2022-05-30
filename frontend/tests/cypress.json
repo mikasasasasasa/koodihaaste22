@@ -1,0 +1,7 @@
+{
+  "baseUrl": "http://localhost:3000",
+  "defaultCommandTimeout": 5000,
+  "integrationFolder": "cypress/tests",
+  "videosFolder": "cypress/results/videos",
+  "screenshotsFolder": "cypress/results/screenshots"
+}
